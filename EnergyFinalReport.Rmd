@@ -3,10 +3,10 @@ title: "Is Energy in Synergy with Life"
 author: "Bhawneet Singh, Karan Dhir, Nikhil Gupta, Poonam Parag Thakur, Sarah Edwards"
 date: "9/14/2021"
 output:
-  pdf_document: default
-  html_document: default
-  word_document: default
   
+  html_document: default
+  pdf_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -28,7 +28,7 @@ There has been extreme global climate crises throughout the years. Ranging from 
 This analysis will take a look at the [corgis]https://think.cs.vt.edu/corgis/csv/energy/ dataset on energy consumption in the United States form 1960-2014.  The dataset is composed of government reported energy consumption by billion BTU(british thermal units), expenditure by million dollars, and price by dollar per billion BTU. Ranging from commercial energy use to residential energy use, the fuels in the dataset can be categorized into both renewable and non-renewable resources. This flow chart describes to full detail how energy is split among the variables.
 
 ```{r}
-knitr::include_graphics("Energy_Flow_Chart.jpeg")
+knitr::include_graphics("Energy_Flow_Chart.png")
 ```
 
 ## Exploring the Data
@@ -59,7 +59,7 @@ Total_Consumption_non_renewable_industrial =
   rowSums(energy_df[consumption_energy_non_renewable_industrial]))
 ```
 
-With the data imported and correctly sorted based on fuel type, we can begin create visualize and do an analysis of the data.  For our first question, what states have done the best using renewable energy, we will look at the top three states who were doing the best at the year before joining the Paris Agreement, 2014. We will be basing the top 3 states based on which state was using the most renewable resources. We also want to know the top five states that have done to worst when it comes to non-renewable fuel consumption.  Again we will be biasing the top states who used the most non-renewable fuel over all fuel types. Since using non-renewable recourse we can look into how much each state is using each type of non-renewable fuel. Specifically we will look at how much coal, distillate fuil oil, and wood the top 5 states are using.
+With the data imported and correctly sorted based on fuel type, we can begin create visualize and do an analysis of the data.  For our first question, what states have done the best using renewable energy, we will look at the top three states who were doing the best at the year before joining the Paris Agreement, 2014. We will be basing the top 3 states based on which state was using the most renewable resources. We also want to know the top five states that have done to worst when it comes to non-renewable fuel consumption.  Again we will be biasing the top states who used the most non-renewable fuel over all fuel types. Since using non-renewable resources we can look into how much each state is using each type of non-renewable fuel. Specifically we will look at how much coal, distillate fuel oil, and wood resources, the top 5 states are using.
 ```{r best_renewable_states, echo=TRUE}
 # Manipulating the data for Consumption of Renewable Resources 
 # in Industrial sector(Donut Chart)
@@ -122,7 +122,7 @@ top5_states_non_rene_chart <- ggplot(pivot_data, aes(x=State, y = Consumption/10
 top5_states_non_rene_chart
 ```
 
-The state using the most renewable energy as in 2014 is Texas and the state using the most non-renewable energy is Pennsylvania.  Coal is the biggest fuel source Pennsylvania is using out of the three types we looked at. Fuel is one of the more environmentally harmful fuel sources. This raises a few concerns considering Pennsylvania is already the top state using the most non-renewable resources.  It is also important to note that even though Texas is using the most renewable resources they are still one of the top states using the most non-renewable resources. For now however we will focus on how these to states are using renewable fuel types since those are the best way to decrease to carbon emissions.
+The state using the most renewable energy as in 2014 is Texas and the state using the most non-renewable energy is Pennsylvania.  Coal is the biggest fuel source Pennsylvania is using out of the three types we looked at. Fuel is one of the more environmentally harmful fuel sources. This raises a few concerns considering Pennsylvania is already the top state using the most non-renewable resources. It is also important to note that even though Texas is using the most renewable resources they are still one of the top states using the most non-renewable resources. For now however we will focus on how these to states are using renewable fuel types since those are the best way to decrease to carbon emissions.
 
 Lets take a closer look and analyze how both these states used non-renewable and renewable fuels between 1960 to 2014.
 ```{r analysis_worst_v_best, echo=TRUE}
@@ -184,7 +184,7 @@ The state consuming the most renewable fuel was Texas and the state consuming th
 
 With the top state in non-renewable energy consumption and renewable energy consumption we began to analyze how the states were consuming these two types of energy resources over the years of 1960 to 2014. Though the state has high consumption numbers, Texas remained constant in their non-renewable energy but was increasing in the consumption in renewable energy over the years. Since the renewable energy consumption was increasing it could illiterate a sign that Texas began to favor renewable energy with increasing total energy usage. Pennsylvania however, remained to have low numbers in renewable resources but had decreasing consumption in non-renewable resources. Our linear model showed that the the state had a decreasing non-renewable energy consumption rate of 16,982.3 billion BTU per year and had the trajectory of continuing to decrease their consumption rate past 2014, without the US being apart of the Paris Agreement. Despite being apart of the Paris Agreement the United States did appear to be on its way to creating a more energy environmentally friendly atmosphere within the industrial sector, weather that be states using less non-renewable resources and/or using more renewable resources.
 
-This conclusion does come with biases however. The biggest bias is the last year recorded in the dataset is in 2014. Over past recent years the US could have had different energy consumption, especially being in the Paris Agreement. This could result in a completely different result than the ones drawn with this analysis. We also mainly looked at two states in the analysis. Other states could have very different industrial energy consumption and that would indicated a different conclusion.  There was also missing data for other renewable resources and not all columns were used in this report.  And with some of the   We also did not consider how the expenditure nor price affected the consumption which could have played a considerable role in how and why the states consumed their fuel.  Lastly we only considered the industrial data, other sectors again can have very different outputs and result in a different conclusion.
+This conclusion does come with biases, however. The biggest bias is the last year recorded in the dataset is in 2014. Over past recent years the US could have had different energy consumption, especially being in the Paris Agreement. This could result in a completely different result than the ones drawn with this analysis. We also mainly looked at two states in the analysis. Other states could have very different industrial energy consumption and that would indicated a different conclusion. There was also missing data for other renewable resources and not all columns were used in this report.Moreover, we did not consider how the expenditure and price affected the consumption which could have played a considerable role in how and why the states consumed their fuel.  Lastly we only considered the industrial data, other sectors again can have very different outputs and result in a different conclusion.
 
 The next steps to be taken with this analysis is to look into these basis and do a deeper analysis than what was done here. To look into this analysis our report can be found on github, https://github.com/karan1dhir/CU-Boulder-DataScienceAsField.git.
  
